@@ -1,0 +1,119 @@
+/* Hero v3: headline left, a sample report card as the focal visual. The card shows the product loop:
+   checks, evidence, decision. Every number on it is labelled demo. */
+.hero{padding:8px 0 0}
+.h3grid{display:grid;gap:20px;padding-bottom:40px}
+.h3r{display:flex;flex-direction:column;gap:16px;min-width:0}
+.hero h1{font-size:clamp(2.5rem,1rem + 6vw,6rem);line-height:1.02}
+.hero .sub{font:400 1.125rem/1.5 var(--f-body);max-width:36ch;margin-top:20px;color:var(--fx-ink)}
+@media(max-width:699px){.hero .sub{display:none}}
+@media(min-width:900px){.h3grid{grid-template-columns:minmax(0,1fr) minmax(0,500px);gap:56px;align-items:center;padding:24px var(--gutter) 72px}}
+
+/* sample choices: one even row, never a stray wrap */
+.hero .chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.hero .chip{justify-content:center;padding:0 8px;white-space:nowrap;min-width:0}
+@media(max-width:419px){.hero .chip .x{display:none}}
+
+/* the card */
+.rc-wrap{position:relative}
+.rcard{background:var(--fx-white);color:var(--fx-ink);border:4px solid var(--fx-ink);border-radius:4px;box-shadow:10px 10px 0 var(--fx-ink);overflow:hidden;transform-origin:50% 60%}
+@media(min-width:900px){.rcard{rotate:-1.5deg}}
+.js .rcard{animation:cardIn 700ms 200ms var(--ease) both}
+@keyframes cardIn{from{opacity:0;translate:0 32px}to{opacity:1;translate:0 0}}
+.rc-top{display:flex;justify-content:space-between;align-items:center;gap:8px;background:var(--fx-ink);color:var(--fx-cream);padding:8px 16px;font:800 .875rem var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:.06em}
+.rc-top .tg{color:var(--fx-yellow)}
+.rc-id{padding:16px 16px 12px;border-bottom:3px solid var(--fx-ink)}
+.rc-id h2{font-size:clamp(1.375rem,1rem + 1.6vw,1.875rem);line-height:1.05;letter-spacing:-.02em;text-transform:none}
+.rc-ask{margin-top:8px;font-size:1rem}.rc-ask b{font-variant-numeric:tabular-nums}
+.rc-ask .ign-t{display:none;margin-left:8px;font-weight:700;color:var(--fx-bad)}
+.rc-ask.ign b{text-decoration:line-through 3px var(--fx-bad)}.rc-ask.ign .ign-t{display:inline}
+.rc-rows{list-style:none;margin:0;padding:0}
+.rc-rows li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 16px;border-bottom:2px solid var(--fx-ink);font-size:1rem;transition:background var(--d-base)}
+.rc-n{min-width:0}
+.pill{display:inline-flex;align-items:center;gap:8px;flex:none;padding:3px 12px;border-radius:4px;border:2px solid currentColor;font-size:.875rem;font-weight:700}
+.pill .i{width:16px;height:16px;stroke-width:3}
+.rc-ok .pill{color:var(--fx-ok);background:var(--fx-ok-tint)}
+.rc-warn .pill{color:var(--fx-warn);background:var(--fx-warn-tint)}
+.rc-bad{background:var(--fx-bad-tint)}.rc-bad .pill{color:var(--fx-white);background:var(--fx-bad);border-color:var(--fx-bad)}
+.rc-off .pill{color:var(--fx-unk);background:var(--fx-unk-tint)}
+.rc-wait .pill{color:var(--fx-ink-3);background:var(--fx-sunken);opacity:.6}
+.rc-rows li.popin .pill{animation:pill 260ms var(--ease)}
+@keyframes pill{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
+.rc-out{padding:16px;display:flex;flex-direction:column;gap:8px;min-height:112px;justify-content:center;position:relative;transform-origin:50% 0;transition:background var(--d-base)}
+.rc-out.flip{animation:flip 420ms var(--ease)}
+.rc-v{font:900 clamp(2rem,1.2rem + 3vw,3rem)/1 var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:-.02em}
+.rc-out p+p{font-size:1rem;max-width:44ch;line-height:1.45}
+.o-dear{background:var(--fx-yellow)}
+.o-fair{background:var(--fx-white)}
+.o-lock{background:var(--fx-ink);color:var(--fx-cream);padding-top:28px}
+.o-lock::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--c-hazard)}
+.o-lock .rc-v{color:var(--fx-yellow)}
+.rc-foot{padding:8px 16px;font-size:.875rem;border-top:3px solid var(--fx-ink);background:var(--fx-cream)}
+.hero .btn{width:100%}
+@media(min-width:900px){.hero .btn{width:auto;align-self:flex-start}}
+@media(prefers-reduced-motion:reduce){.js .rcard{animation:none}}
+@media(max-width:699px){.h3r{gap:12px}.h3grid{gap:16px}.rc-rows li{min-height:40px;padding:4px 16px}.rc-id{padding:12px 16px}.rc-out{min-height:96px;padding:12px 16px}.o-lock{padding-top:24px}.rc-foot{padding:8px 16px}}
+.hero .chip .x{white-space:pre}
+
+/* Phase 2: the report lives inside a realistic phone. Frame, island, status bar, side buttons, home bar. */
+.rc-wrap{width:100%;max-width:340px;margin-inline:auto}
+.rcard{border:10px solid var(--fx-ink);border-radius:46px;box-shadow:10px 10px 0 var(--fx-ink);background:var(--fx-white)}
+@media(min-width:900px){.rc-wrap{max-width:360px}.rcard{rotate:-3deg}}
+.rc-wrap::before,.rc-wrap::after{content:"";position:absolute;width:5px;background:var(--fx-ink);border-radius:3px;z-index:-1}
+.rc-wrap::before{left:-4px;top:110px;height:84px;box-shadow:0 -46px 0 0 var(--fx-ink)}
+.rc-wrap::after{right:-4px;top:140px;height:64px}
+.ph-status{display:flex;align-items:center;justify-content:space-between;height:34px;padding:0 24px;font:700 .875rem var(--f-body);font-variant-numeric:tabular-nums;color:var(--fx-ink);background:var(--fx-white);position:relative}
+.ph-isl{position:absolute;left:50%;top:7px;translate:-50% 0;width:88px;height:22px;border-radius:12px;background:var(--fx-ink)}
+.ph-ic{display:inline-flex;align-items:flex-end;gap:2px;height:12px}
+.ph-ic b{width:3px;background:var(--fx-ink);border-radius:1px}
+.ph-ic b:nth-child(1){height:4px}.ph-ic b:nth-child(2){height:6px}.ph-ic b:nth-child(3){height:9px}.ph-ic b:nth-child(4){height:12px}
+.ph-bat{width:22px;height:11px;border:2px solid var(--fx-ink);border-radius:3px;margin-left:8px;position:relative;background:linear-gradient(90deg,var(--fx-ink) 0 70%,transparent 70%);background-clip:content-box;padding:1px}
+.rcard .rc-top{border-radius:0}
+.ph-home{display:block;width:110px;height:5px;border-radius:3px;background:var(--fx-ink);margin:8px auto 8px}
+.rc-foot{border-top:3px solid var(--fx-ink)}
+/* objects around the phone: desktop only, they pop in then follow the pointer */
+.rc-wrap .o{position:absolute;color:var(--fx-ink);z-index:2;display:none}
+@media(min-width:900px){.rc-wrap .o{display:block}}
+.js .rc-wrap .o{opacity:0;animation:pop 520ms var(--ease) forwards;animation-delay:calc(700ms + var(--i)*80ms)}
+@media(prefers-reduced-motion:reduce){.js .rc-wrap .o{opacity:1;animation:none}}
+@media(max-width:699px){.rcard .rc-foot{display:none}.rcard{border-width:8px;border-radius:42px}.ph-status{height:30px}.ph-isl{top:5px}.ph-home{margin:8px auto}}
+.h3cta{display:none}
+@media(min-width:900px){.h3cta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:28px}.h3r .h3m{display:none}}
+.h3cta .lnk2{align-self:flex-start}
+
+/* Real phone: 9:19 body, side buttons move with the tilt because they live on the tilted wrapper */
+.rc-wrap{max-width:none}
+.rc-wrap::before,.rc-wrap::after{content:none}
+.ph{position:relative;width:min(300px,80vw);margin-inline:auto;isolation:isolate}
+.rcard{rotate:none!important;aspect-ratio:9/19;display:flex;flex-direction:column}
+.rcard .rc-foot{margin-top:auto}
+@media(min-width:900px){.ph{rotate:-3deg}}
+.ph-btn{position:absolute;width:5px;background:var(--fx-ink);border-radius:3px;z-index:-1}
+.ph-btn.v1{left:-4px;top:118px;height:40px}
+.ph-btn.v2{left:-4px;top:168px;height:40px}
+.ph-btn.pw{right:-4px;top:150px;height:66px}
+/* phones: action first, then the sample controls and the phone */
+@media(max-width:899px){.h3r .h3m{order:-1}.h3r #heroSample{order:-1;align-self:center;margin-top:-8px}.h3r .chips{order:0}.rc-wrap{order:1}}
+@media(max-width:699px){.rcard .rc-foot{display:block}}
+.rcard{aspect-ratio:auto;min-height:calc(min(300px,80vw) * 19 / 9)}.rc-id h2{font-size:1.25rem}
+
+.hpause{align-self:flex-end;font-size:.9375rem;margin:-8px 0 -4px}.hpause[hidden]{display:none}
+.rc-id .rc-name{font-size:1.25rem;line-height:1.05;letter-spacing:-.02em}
+
+/* Phase C: a thumb taps through the checks. It enters from below, presses, and leaves before the verdict. */
+.rcard{position:relative}
+.thumb{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:rgba(20,18,15,.3);box-shadow:0 0 0 3px var(--fx-white),0 4px 12px rgba(20,18,15,.3);z-index:6;pointer-events:none;opacity:0;translate:200px 620px;transition:translate 380ms var(--ease),opacity 200ms,scale 100ms var(--ease)}
+.thumb.on{opacity:1}.thumb.press{scale:.8}
+.o-wait{background:var(--fx-sunken)}.o-wait .rc-v{color:var(--fx-ink-3)}
+@media(prefers-reduced-motion:reduce){.thumb{display:none}}
+.rc-rows .pill{min-width:112px;justify-content:center}
+.rcard .rc-out{flex:1}
+.rcard .rc-v{font-size:2rem}
+
+/* headline hover: the tick redraws and each word lifts 2px in turn. Mouse only (sticky on touch), none with reduced motion */
+.hero h1 .w{transition:translate 200ms cubic-bezier(.23,1,.32,1);transition-delay:calc(var(--i) * 40ms)}
+.slot path{stroke-dasharray:1;stroke-dashoffset:0}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ .hero h1:hover .w{translate:0 -2px}
+ .hero h1:hover .slot path{animation:tickDraw 420ms cubic-bezier(.23,1,.32,1)}
+}
+@keyframes tickDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}

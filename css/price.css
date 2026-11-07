@@ -1,0 +1,74 @@
+/* Phone and price: guided form and results. Brutalist, but body text stays calm. */
+.ty .in{gap:20px}
+.ty-h{font-size:clamp(2.25rem,1rem + 5vw,5.5rem);text-transform:uppercase;letter-spacing:-.035em;line-height:.94;overflow-wrap:anywhere}
+.demo{border:3px solid var(--c-yellow);border-radius:4px;padding:12px 16px;max-width:70ch;font-size:1rem}
+.demo b{color:var(--c-yellow)}
+.ty-grid{display:grid;gap:32px;min-width:0}
+.pform,.pout{min-width:0}
+@media(min-width:1000px){.ty-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:start}.pout{position:sticky;top:24px}}
+.fh{font:800 1.375rem var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:-.02em;margin:24px 0 12px;border-top:3px solid var(--c-chapter-ink);padding-top:16px}
+.fh:first-child{margin-top:0;border:0;padding:0}
+.fs{border:0;padding:0;margin:0 0 20px;min-width:0}
+.fs legend,.lb{display:block;font-weight:700;font-size:1rem;margin-bottom:8px;padding:0}
+.fs small,.hint{display:block;font-size:.875rem;opacity:.9;margin-top:8px;max-width:60ch}
+.opts{display:flex;flex-wrap:wrap;gap:12px}
+.opts label{position:relative}
+.opts input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.opts span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:3px solid var(--c-chapter-ink);border-radius:4px;font-weight:700;font-size:.9375rem;box-shadow:3px 3px 0 var(--c-chapter-ink);transition:transform var(--d-fast) var(--ease),box-shadow var(--d-fast) var(--ease),background var(--d-fast)}
+.opts label:hover span{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--c-chapter-ink)}
+.opts input:checked+span{background:var(--c-yellow);color:#14120F;border-color:var(--c-yellow);box-shadow:none;transform:translate(3px,3px)}
+.opts input:focus-visible+span{outline:3px solid var(--c-yellow);outline-offset:3px}
+.opts.src{margin-top:12px}.opts.src span{min-height:36px;font-size:.875rem;box-shadow:none;border-width:2px;font-weight:600}
+.pform select,.pform input[type=number],.pform textarea{width:100%;max-width:100%;min-height:48px;padding:8px 12px;background:transparent;color:var(--c-chapter-ink);border:3px solid var(--c-chapter-ink);border-radius:4px;font:600 1rem var(--f-body)}
+.pform option{color:#14120F;background:#fff}
+.pform select:focus-visible,.pform input:focus-visible,.pform textarea:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}
+.rng2{width:100%;margin:16px 0 0;accent-color:var(--c-yellow);height:44px}
+.paste{border:3px solid var(--c-chapter-ink);border-radius:4px;padding:12px 16px;margin-top:8px}
+.paste summary{font-weight:700;cursor:pointer;min-height:32px}
+.paste .btn{margin-top:12px;min-height:44px}
+/* results */
+.v-all{border:3px solid var(--c-chapter-ink);border-radius:4px;padding:20px;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.v-all p{font-size:1.125rem;max-width:52ch}
+.two{display:grid;gap:16px;margin-top:16px}
+@media(min-width:640px){.two{grid-template-columns:1fr 1fr}}
+.card{border:3px solid var(--c-chapter-ink);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:12px;margin-top:16px;min-width:0;position:relative}
+.two .card{margin-top:0}
+.card h3{font:800 1.25rem var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:-.02em;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.card .plate{align-self:flex-start;font-size:1.25rem;white-space:normal;text-align:center}
+.card.stop{padding-top:28px}.card.stop::before{content:"";position:absolute;left:0;right:0;top:0;height:12px;background:var(--c-hazard)}
+.card.dim{opacity:.5}
+.card p,.card dd,.card li{font-size:1rem;line-height:1.5;max-width:60ch}
+.cl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.cl li{display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline}
+.rg2{display:grid;gap:16px}@media(min-width:640px){.rg2{grid-template-columns:1fr 1fr}}
+.rg2 h4{font-size:1rem;margin:0 0 4px}
+.amt{font:800 clamp(1.5rem,1rem + 2vw,2rem) var(--f-display);font-stretch:112%;font-variant-numeric:tabular-nums;letter-spacing:.01em;overflow-wrap:anywhere}
+.prov{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:8px 0 0;font-size:.9375rem}
+.prov dt{font-weight:700}.prov dd{margin:0}
+@media(max-width:520px){.prov{grid-template-columns:1fr}.prov dd{margin-bottom:8px}}
+.how{padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:.9375rem}
+.card details summary{font-weight:700;cursor:pointer;min-height:32px}
+.tg{display:inline-block;font:700 .8125rem var(--f-body);padding:1px 8px;border-radius:4px;border:2px solid currentColor;white-space:nowrap;letter-spacing:0;text-transform:none}
+.tg.s{color:#FFC20A}.tg.b{color:#6FD594}.tg.u{color:#9FB0F0}.tg.d{color:#FFC20A}
+.msg p{font-size:1.0625rem}
+.msg .btn{align-self:flex-start;min-height:44px}
+.pout .fb{margin-top:16px}
+[data-theme=light] .tg.s{color:#FFC20A}
+.plate.xl,.card .plate,.v-all .plate{white-space:normal;max-width:100%;text-align:center;overflow-wrap:anywhere}
+.plate.xl{padding-inline:clamp(24px,6vw,40px)}
+
+.pform input[type=text]{width:100%;max-width:100%;min-height:48px;padding:8px 12px;background:transparent;color:var(--c-chapter-ink);border:3px solid var(--c-chapter-ink);border-radius:4px;font:600 1rem var(--f-body)}
+.pform input[type=text]::placeholder{color:var(--c-chapter-ink);opacity:.6}
+.pform input[type=text]:focus-visible{outline:3px solid var(--c-yellow);outline-offset:3px}
+
+.more2{margin-top:16px}.more2 .card:first-of-type{margin-top:4px}
+.c-pr .amt{margin-top:4px}
+#try[hidden]{display:none}
+
+/* Phase E: report reveal (runs once, content is visible by default) */
+#try.in>.hazard{transform-origin:left;animation:hzIn 700ms cubic-bezier(.16,1,.3,1)}
+#try.in .v-all{animation:vIn 420ms 120ms cubic-bezier(.16,1,.3,1) both}
+@keyframes hzIn{from{transform:scaleX(0)}to{transform:none}}
+@keyframes vIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){#try.in>.hazard,#try.in .v-all{animation:none}}
+.ty a:not(.btn){color:inherit;text-decoration:underline;text-underline-offset:3px;font-weight:700}#chkHint a{display:inline-flex;align-items:center;min-height:44px}

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pehle Check</title>
+<meta name="description" content="Check a used phone before you pay. Ten checks, one verdict, with reasons. Sample data.">
+<link rel="icon" href="assets/svg/mark.svg">
+<link rel="preload" href="assets/fonts/archivo-latin-standard-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/brutal.css">
+<link rel="stylesheet" href="css/price.css">
+<link rel="stylesheet" href="css/v2.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/check.css">
+<script>document.documentElement.classList.add('js');try{var q=new URLSearchParams(location.search).get('theme')||localStorage.getItem('theme');if(q)document.documentElement.dataset.theme=q}catch(e){}</script>
+<script src="js/common.js" defer></script>
+<script src="js/home.js" defer></script>
+<script src="js/check.js" defer></script>
+<script src="js/price.js" defer></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+ <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+ <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z"/><path d="M12 10v4M12 17.5v.1"/></symbol>
+ <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .8-1 1.7M12 17v.1"/></symbol>
+ <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+ <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+ <symbol id="i-lang" viewBox="0 0 24 24"><path d="M3 5h10M8 3v2M5.5 5c.5 3.5 3 6.5 6.5 8M10.5 5c-.5 4-3 7-7 8.5"/><path d="M13 21l4-10 4 10M14.4 17.5h5.2"/></symbol>
+ <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></symbol>
+ <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></symbol>
+ <symbol id="i-up" viewBox="0 0 24 24"><path d="M7 11v9H4v-9zM7 11l4-8c1.5 0 2.5 1 2.5 2.5V9H19a2 2 0 0 1 2 2.3l-1.2 7A2 2 0 0 1 17.8 20H7"/></symbol>
+ <symbol id="i-down" viewBox="0 0 24 24"><path d="M7 13V4H4v9zM7 13l4 8c1.5 0 2.5-1 2.5-2.5V15H19a2 2 0 0 0 2-2.3l-1.2-7A2 2 0 0 0 17.8 4H7"/></symbol>
+ <symbol id="o-battery" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3" stroke-linejoin="round"><rect x="12" y="30" width="64" height="38" rx="8" fill="none"/><rect x="78" y="42" width="7" height="14" rx="2" fill="currentColor"/><rect x="18" y="36" width="42" height="26" rx="4" fill="#FFC20A" stroke="none"/></g></symbol>
+ <symbol id="o-sim" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M26 14h34l14 14v54H26z" fill="#FFC20A"/><rect x="36" y="44" width="28" height="26" rx="4" fill="none"/><path d="M36 57h28M50 44v26" stroke-width="2.5"/></g></symbol>
+ <symbol id="o-bill" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M22 10h52v78l-8-6-9 6-9-6-9 6-9-6-8 6z" fill="#FFFFFF"/><path d="M32 28h32M32 40h32M32 52h20"/><circle cx="62" cy="64" r="9" fill="none"/><path d="M58 64l3 3 5-6" fill="none"/></g></symbol>
+ <symbol id="o-lock" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><rect x="20" y="42" width="56" height="42" rx="9" fill="#FFC20A"/><path d="M32 42V30a16 16 0 0 1 32 0v12" fill="none"/><circle cx="48" cy="60" r="5" fill="currentColor"/><path d="M48 64v10"/></g></symbol>
+ <symbol id="o-chat" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"><path d="M14 18h68a6 6 0 0 1 6 6v36a6 6 0 0 1-6 6H44l-16 14V66H14a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z" fill="#FFC20A"/><path d="M24 34h40M24 48h26" fill="none"/></g></symbol>
+ <symbol id="o-back" viewBox="0 0 96 96"><g stroke="currentColor" stroke-width="3"><rect x="22" y="8" width="52" height="82" rx="11" fill="none"/><circle cx="40" cy="26" r="8" fill="#FFC20A"/><rect x="30" y="52" width="36" height="24" rx="3" fill="#FFFFFF" stroke-width="2.5"/><path d="M34 58v12M38 58v12M41 58v12M46 58v12M49 58v12M54 58v12M58 58v12" stroke-width="1.6"/></g></symbol>
+</svg>
+
+<div class="prog" id="prog" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="wrap hdr">
+ <a href="./" aria-label="Pehle Check, home"><img class="logo lt" src="assets/svg/lockup-light.svg" alt="Pehle Check" width="197" height="36"><img class="logo dk" src="assets/svg/lockup-dark.svg" alt="" width="197" height="36"></a>
+ <nav aria-label="Main">
+  <a class="lnk" href="#how">The ten checks</a><a class="lnk" href="#guides">Hard stops</a><a class="lnk" href="#how">Start a check</a>
+  <button class="ibtn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-controls="langPop"><svg class="i" aria-hidden="true"><use href="#i-lang"/></svg><span class="lang-lbl" id="langLbl">English</span><span class="sr">, change language</span></button>
+  <button class="ibtn" id="themeBtn" aria-label="Switch to dark theme"><svg class="i moon" aria-hidden="true"><use href="#i-moon"/></svg><svg class="i sun" aria-hidden="true"><use href="#i-sun"/></svg></button>
+  <div class="pop" id="langPop" role="menu" aria-label="Language">
+   <div class="pop-h"><b>Language</b><button class="ibtn x" id="langX" aria-label="Close"><svg class="i" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+   <p class="pop-g">Your device</p><button role="menuitemradio" aria-checked="true" data-l="English">English <small>Ready</small></button>
+   <p class="pop-g">Ready</p><button role="menuitemradio" aria-checked="false" data-l="हिन्दी" lang="hi">हिन्दी <small>Draft translation</small></button><button role="menuitemradio" aria-checked="false" data-l="मराठी" lang="mr">मराठी <small>Draft translation</small></button>
+   <p class="pop-g">14 more languages</p><button role="menuitem" id="notify">Coming soon, notify me</button>
+   <p class="note" id="langNote" aria-live="polite"></p>
+  </div>
+ </nav>
+</header>
+<div class="scrim" id="scrim"></div>
+
+<main id="main">
+<section class="hero"><div class="wrap h3grid">
+ <div class="h3l">
+  <h1 class="d" aria-label="Check before you pay."><span class="w" style="--i:0"><span>Check</span></span> <span class="slot" aria-hidden="true"><svg viewBox="0 0 24 24"><path pathLength="1" d="M4 12.5l5 5L20 6.5"/></svg></span><br><span class="w" style="--i:1"><span>before</span></span> <span class="w" style="--i:2"><span>you</span></span> <span class="w" style="--i:3"><span>pay.</span></span></h1>
+  <p class="sub">Check the phone in front of the seller. See what passed, what failed and what you could not check. Then get a decision with reasons.</p>
+  <div class="h3cta"><a class="btn lg" href="#how">Start a check</a><a class="lnk2 js-sample" href="#try">See this sample as a full report</a></div>
+ </div>
+ <div class="h3r">
+  <div class="chips" aria-label="Sample scenario"><button class="chip" data-s="fair" aria-checked="false">Fair<span class="x"> price</span></button><button class="chip" data-s="dear" aria-checked="true">Too costly</button><button class="chip" data-s="lock" aria-checked="false">Locked<span class="x"> phone</span></button></div>
+  <button class="lnk2 hpause" id="heroPause" type="button">Pause sample</button>
+  <div class="rc-wrap" id="panel">
+   <svg class="obj o" data-d="30" style="--i:0;left:calc(50% - 312px);top:6%;rotate:-10deg" width="88" height="88" aria-hidden="true"><use href="#o-battery"/></svg>
+   <svg class="obj o" data-d="-36" style="--i:1;right:calc(50% - 304px);top:20%;rotate:9deg" width="76" height="76" aria-hidden="true"><use href="#o-sim"/></svg>
+   <svg class="obj o" data-d="42" style="--i:2;right:calc(50% - 306px);bottom:12%;rotate:8deg" width="78" height="78" aria-hidden="true"><use href="#o-lock"/></svg>
+   <svg class="obj o" data-d="-24" style="--i:3;left:calc(50% - 312px);bottom:16%;rotate:-6deg" width="84" height="84" aria-hidden="true"><use href="#o-bill"/></svg>
+   <div class="ph" id="phone"><i class="ph-btn v1" aria-hidden="true"></i><i class="ph-btn v2" aria-hidden="true"></i><i class="ph-btn pw" aria-hidden="true"></i>
+   <article class="rcard" id="rcard" aria-labelledby="rcH">
+    <div class="ph-status" aria-hidden="true"><span>9:41</span><i class="ph-isl"></i><span class="ph-ic"><b></b><b></b><b></b><b></b><span class="ph-bat"></span></span></div>
+    <header class="rc-top"><span>Sample report</span><span class="tg d">Sample data</span></header>
+    <div class="rc-id"><p class="d rc-name" id="rcH">iPhone 13 · 128 GB</p><p class="rc-ask" id="rcAskL">Asking <b id="rcAsk">₹31,000</b><span class="ign-t">price ignored</span></p></div>
+    <ol class="rc-rows" id="rcRows" aria-label="Sample check results"></ol>
+    <div class="rc-out o-dear" id="rcOut"><p class="rc-v" id="rcV">Negotiate</p><p id="rcW"></p></div>
+    <p class="rc-foot">Invented sample. No live price source or official check is connected.</p>
+    <i class="ph-home" aria-hidden="true"></i>
+    <i class="thumb" id="thumb" aria-hidden="true"></i>
+   </article></div>
+  </div>
+  <a class="btn lg h3m" href="#how" id="heroCta">Start a check</a>
+  <a class="lnk2 js-sample h3m" href="#try" id="heroSample">See this sample as a full report</a>
+  <p class="sr" id="hlive" aria-live="polite"></p>
+ </div>
+</div></section>
+
+<nav class="ticker" id="ticker" aria-label="The ten checks"><div class="tk-track" id="tkTrack"></div></nav>
+
+<section class="stepper sunken" id="how" aria-labelledby="stTitle"><div class="wrap st-in">
+ <h2 class="d st-title" id="stTitle">Check the phone</h2>
+ <p class="lead2">One check at a time, in front of the seller. Your answers stay on this device only.</p>
+ <p class="mode" id="modeNote" hidden></p>
+ <div class="tool-acts"><a class="lnk2" href="#try">Skip to price and report</a><button class="ibtn" id="resetBtn" type="button">Start over</button></div>
+ <p class="st-n" id="stN">Check 1 of 10</p>
+ <ol class="st-dots" id="stDots" aria-label="All ten checks"></ol>
+ <div class="st-card">
+  <div class="st-h"><h3 class="d" id="stH" tabindex="-1">IMEI match</h3><span class="hs" id="stHs"><svg class="i"><use href="#i-lock"/></svg>Hard stop</span></div>
+  <p class="st-why" id="stWhy"></p>
+  <div class="seg" id="stOs" aria-label="Phone type"><button type="button" data-os="i" aria-checked="true">iPhone</button><button type="button" data-os="a" aria-checked="false">Android</button></div>
+  <ol class="st-steps" id="stSteps"></ol>
+  <div class="res" id="stRes" aria-label="Result of this check"><button type="button" class="k" data-r="ok" aria-checked="false"><svg class="i" width="20" height="20"><use href="#i-check"/></svg>OK</button><button type="button" class="p" data-r="prob" aria-checked="false"><svg class="i" width="20" height="20"><use href="#i-x"/></svg>Problem</button><button type="button" class="u" data-r="unk" aria-checked="false"><svg class="i" width="20" height="20"><use href="#i-help"/></svg>Not checked</button></div>
+  <p class="st-msg" id="stMsg" aria-live="polite"></p>
+ </div>
+ <div class="st-sum" id="stSum" aria-hidden="true"></div>
+ <div class="st-nav"><button class="btn sec2" type="button" id="stBack">Back</button><button class="btn" type="button" id="stNext">Next check</button></div>
+</div></section>
+
+<section class="chapter ty" id="try" hidden><div class="hazard lg"></div><div class="wrap in">
+ <h2 class="d ty-h">Phone and price</h2>
+ <p class="demo"><span class="tg d">Sample data</span> Invented sample prices. No live price source is connected, so none of this is a real estimate.</p>
+ <div class="chips" id="exs" aria-label="Load an example"></div>
+ <p class="sr" id="scnNote" aria-live="polite" aria-atomic="true"></p>
+ <div class="ty-grid"><form class="pform" id="pform" onsubmit="return false" novalidate></form><div class="pout" id="pout"></div></div>
+</div></section>
+
+
+
+<section class="hard sec" id="guides"><div class="hazard lg"></div><div class="wrap hard-grid">
+ <div><h2 class="d">No price fixes a hard stop.</h2>
+  <div class="hrow"><svg class="i"><use href="#i-lock"/></svg><span class="d">Account lock found</span><span class="hs">Hard stop</span></div>
+  <div class="hrow"><svg class="i"><use href="#i-lock"/></svg><span class="d">Seller wants money before you inspect</span><span class="hs">Hard stop</span></div>
+  <div class="hrow"><svg class="i"><use href="#i-lock"/></svg><span class="d">Blocked or mismatched IMEI</span><span class="hs">Hard stop</span></div>
+  <div class="hrow"><svg class="i"><use href="#i-lock"/></svg><span class="d">EMI or loan still pending</span><span class="hs">Hard stop</span></div>
+  <div class="hrow"><svg class="i"><use href="#i-lock"/></svg><span class="d">Seller won’t sign out in front of you</span><span class="hs">Hard stop</span></div>
+ </div>
+ <div class="art"><svg width="100%" viewBox="0 0 96 96" style="color:var(--c-ink);overflow:visible" aria-hidden="true"><use href="#o-lock"/></svg></div>
+</div></section>
+
+<section class="scam sec sunken"><div class="wrap scam-in">
+ <div id="quiz"><h2 class="d">Real seller or scam?</h2>
+  <div class="qrow" data-c="scam" data-t="A real seller waits."><div class="d">“Pay half now to hold it.”<div class="ans-t" hidden></div></div><div class="qbtns" aria-label="Real or scam"><button class="qb" data-a="real" aria-checked="false">Real</button><button class="qb" data-a="scam" aria-checked="false">Scam</button></div></div>
+  <div class="qrow" data-c="real" data-t="Good sellers let you test."><div class="d">“Check it as long as you like.”<div class="ans-t" hidden></div></div><div class="qbtns" aria-label="Real or scam"><button class="qb" data-a="real" aria-checked="false">Real</button><button class="qb" data-a="scam" aria-checked="false">Scam</button></div></div>
+  <div class="qrow" data-c="scam" data-t="That is a hard stop. Ask again now, and walk away if they refuse."><div class="d">“Sign out of the account? Later.”<div class="ans-t" hidden></div></div><div class="qbtns" aria-label="Real or scam"><button class="qb" data-a="real" aria-checked="false">Real</button><button class="qb" data-a="scam" aria-checked="false">Scam</button></div></div>
+  <p class="score" id="score"></p><p class="sr" id="quizLive" aria-live="polite"></p>
+ </div>
+ <div class="art"><svg class="ani" data-k="chat" width="180" height="180" viewBox="0 0 96 96" style="color:var(--c-ink)" aria-hidden="true"><use href="#o-chat"/></svg></div>
+</div></section>
+
+<div class="band" aria-hidden="true"><div class="bw" data-bw="-1">CHECK FIRST. PAY LATER. CHECK FIRST. PAY LATER.</div></div>
+
+<section class="close sec"><div class="wrap">
+ <p class="d"><label for="buy">I am buying an</label> <input class="blank" id="buy" value="iPhone 13" size="9" autocomplete="off"> and will check it first.</p>
+ <a class="btn lg" href="#try" id="buyBtn"><span id="buyT">Check my iPhone 13</span> <svg class="i" aria-hidden="true"><use href="#i-chev"/></svg></a>
+</div></section>
+</main>
+
+<footer class="yellow-bg ftr"><div class="wrap">
+ <div class="ftr-top"><nav aria-label="Footer"><a href="#how">Start a check</a><a class="js-sample" href="#try">Try a sample report</a><a href="https://sancharsaathi.gov.in" rel="noopener">Check an IMEI: Sanchar Saathi</a><a href="#guides">Guides</a><a href="https://www.behance.net/gallery/258181493/Pehle-Check-check-a-used-phone-before-you-pay" rel="noopener" target="_blank">Behind this design</a></nav><a href="#main">↑ Top</a></div>
+ <div class="ftr-mid"><h2 class="d">Scammed? Call <span class="ftr-plate">1930</span></h2>
+  <div class="ftr-objs" aria-hidden="true"><svg class="ani" data-k="back" viewBox="0 0 96 96"><use href="#o-back"/></svg><svg class="ani" data-k="bill" viewBox="0 0 96 96"><use href="#o-bill"/></svg><svg class="ani" data-k="sim" viewBox="0 0 96 96"><use href="#o-sim"/></svg><svg class="ani" data-k="chat" viewBox="0 0 96 96"><use href="#o-chat"/></svg></div></div>
+ <p class="s">National cyber crime helpline. Report at cybercrime.gov.in.</p>
+ <div class="ftr-base"><img class="logo" src="assets/svg/lockup-light.svg" alt="Pehle Check" width="219" height="40"><p>Prices and findings are sample data. Not a government service.</p></div>
+</div></footer>
+<div class="vbar" id="vbar" aria-hidden="true" hidden></div>
+</body>
+</html>

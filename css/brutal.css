@@ -1,0 +1,66 @@
+/* Bold brutalist typographic layer. Loaded last; the brief asked for hard edges, thick ink rules and oversized type. */
+:root{--bw:3px;--hard:5px 5px 0 var(--c-ink)}
+
+/* type: bigger, tighter, upper-case headings */
+.c2 h2,.hard h2,.scam h2,.ty .typed,.ftr h2{text-transform:uppercase;letter-spacing:-.035em;line-height:.94}
+.c2 h2{font-size:clamp(2.75rem,1rem + 5.6vw,6rem)}
+.hard h2,.scam h2{font-size:clamp(2.5rem,1rem + 5vw,5.5rem)}
+.hrow .d,.qrow .d{text-transform:uppercase;letter-spacing:-.02em}
+.ans-t{text-transform:none}
+.close .d{text-transform:uppercase;letter-spacing:-.03em;line-height:1.04}
+.hero h1{letter-spacing:-.04em}
+
+/* section rules */
+main>section+section,main>nav+section{border-top:4px solid var(--c-ink)}
+.ticker{border-block:4px solid var(--c-ink)}
+.sunken{border-top-color:var(--c-ink)}
+
+/* controls: hard edge, ink border, hard offset shadow, they push in when pressed */
+.btn,.chip,.qb,.ibtn{border-radius:4px;border:var(--bw) solid var(--c-ink);transition:transform var(--d-fast) var(--ease),box-shadow var(--d-fast) var(--ease),background var(--d-fast)}
+.btn{background:var(--c-yellow);color:#14120F;box-shadow:var(--hard);text-transform:uppercase;letter-spacing:.02em;font-weight:800}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--c-ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--c-ink);transition-duration:var(--d-press)}
+.btn.sec2{background:var(--c-surface);color:var(--c-ink)}
+.ty .btn,.msg .btn{border-color:var(--c-chapter-ink);box-shadow:5px 5px 0 var(--c-chapter-ink)}
+.chip{box-shadow:3px 3px 0 var(--c-ink);background:var(--c-surface)}
+.chip:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--c-ink)}
+.chip:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--c-ink)}
+.chip[aria-checked=true]{background:var(--c-ink);color:var(--c-ground);box-shadow:none;transform:translate(3px,3px)}
+.chip.ex{border-color:var(--c-chapter-ink);background:transparent;color:var(--c-chapter-ink);box-shadow:3px 3px 0 var(--c-chapter-ink)}
+.chip.ex[aria-checked=true]{background:var(--c-yellow);color:#14120F;border-color:var(--c-yellow);box-shadow:none}
+.qb{box-shadow:3px 3px 0 var(--c-ink);background:var(--c-surface)}
+.qb:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--c-ink)}
+.qb:active{transform:translate(2px,2px);box-shadow:0 0 0 var(--c-ink)}
+.qb[aria-checked=true]{background:var(--c-ink);color:var(--c-ground);box-shadow:none;transform:translate(3px,3px)}
+.ibtn{background:var(--c-surface);box-shadow:3px 3px 0 var(--c-ink)}.ibtn:active{transform:translate(2px,2px);box-shadow:none}
+.pop{border:var(--bw) solid var(--c-ink);border-radius:4px}
+.phone{border-width:5px}
+.panel{border-radius:4px;border:var(--bw) solid var(--c-ink)}
+.msg{border-radius:4px;border:var(--bw) solid var(--c-chapter-ink);background:transparent}
+.hs,.res button,.seg{border-radius:4px}
+.hrow,.qrow{border-top-width:3px;border-top-color:var(--c-ink)}
+.hrow:last-child,.qrow:last-of-type{border-bottom:3px solid var(--c-ink)}
+.range,.range i{border-radius:2px}
+.track .rail,.track .fill{height:8px;top:19px;border-radius:0}
+
+/* scroll-linked layer */
+.hero,.hard,.scam,.close{position:relative;overflow:hidden}
+main .wrap{position:relative;z-index:1}
+.bw{position:absolute;left:0;top:50%;translate:0 -50%;white-space:nowrap;font:800 clamp(9rem,24vw,22rem)/.8 var(--f-display);font-stretch:112%;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:2px var(--c-ink);opacity:.13;pointer-events:none;user-select:none;will-change:transform;z-index:0}
+.hero .bw{top:40%}
+.prog{position:fixed;top:0;left:0;right:0;height:12px;display:flex;gap:3px;z-index:60;pointer-events:none}
+.prog i{flex:1;border:2px solid #14120F;background:rgba(248,246,241,.9);transition:background var(--d-fast)}
+.prog i.on{background:var(--c-yellow)}
+.hdr{padding-top:28px}
+.js [data-scrub]{will-change:transform}
+
+/* feedback thumbs: visible on the dark chapter, with words */
+.fb .ibtn{background:transparent;color:var(--c-chapter-ink);border-color:var(--c-chapter-ink);box-shadow:3px 3px 0 var(--c-chapter-ink);padding:0 16px}
+.fb .ibtn:hover{background:var(--c-yellow);color:#14120F;border-color:var(--c-yellow)}
+.fb .ibtn:active{box-shadow:none}
+.fb .ibtn .i{width:22px;height:22px}
+
+/* typographic band: solid, in the flow, never behind content */
+.band{background:var(--c-yellow);border-block:4px solid var(--c-ink);overflow:hidden;padding:12px 0 4px}
+.band .bw{position:static;translate:none;display:block;width:max-content;color:#14120F;-webkit-text-stroke:0;opacity:1;font-size:clamp(4.5rem,13vw,11rem);line-height:.95;text-transform:uppercase}
+main>.band+section{border-top:0}

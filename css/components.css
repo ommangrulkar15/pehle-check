@@ -1,0 +1,50 @@
+/* button */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 24px;border-radius:var(--r-md);border:2px solid transparent;background:var(--c-action);color:var(--c-on-action);font:700 1rem var(--f-body);cursor:pointer;text-decoration:none;transition:transform var(--d-fast) var(--ease),background var(--d-fast)}
+.btn:hover{transform:translateY(-2px)}.btn:active{transform:translateY(1px);transition-duration:var(--d-press)}
+.btn.lg{min-height:56px;padding:0 28px}
+.btn.sec2{background:var(--c-surface);color:var(--c-ink);border-color:var(--c-ink)}
+.btn svg{width:22px;height:22px}
+/* chip */
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:4px;border:1.5px solid var(--c-ink);background:none;color:var(--c-ink);font:700 .9375rem var(--f-body);cursor:pointer;transition:transform var(--d-fast) var(--ease)}
+.chip:hover{transform:translateY(-2px)}.chip:active{transform:scale(.97)}
+.chip[aria-checked=true]{background:var(--c-ink);color:var(--c-ground)}
+.chip.ex{border:0;border-radius:var(--r-md);background:rgba(128,128,128,.24);color:var(--c-chapter-ink)}
+.chip.ex[aria-checked=true]{background:var(--c-yellow);color:var(--c-on-yellow)}
+/* plate: yellow, inner ring, two screw dots */
+.plate{position:relative;display:flex;align-items:center;justify-content:center;background-color:var(--c-yellow);color:var(--c-on-yellow);border-radius:var(--r-plate);padding:12px 28px;font:800 1.375rem var(--f-display);font-stretch:112%;letter-spacing:.04em;font-variant-numeric:tabular-nums;text-transform:uppercase;
+ background-image:radial-gradient(circle at 12px 50%,#14120F 2.2px,transparent 2.6px),radial-gradient(circle at calc(100% - 12px) 50%,#14120F 2.2px,transparent 2.6px)}
+.plate::before{content:"";position:absolute;inset:3px;border:2px solid #14120F;border-radius:9px;pointer-events:none}
+.plate.xl{font-size:clamp(1.75rem,1rem + 3vw,3rem);padding:16px 40px;letter-spacing:.02em}
+/* hazard band: hard stops only */
+.hazard{height:12px;background:var(--c-hazard)}.hazard.lg{height:24px}
+/* hard-stop tag */
+.hs{display:inline-flex;align-items:center;gap:8px;min-height:28px;padding:0 12px;border-radius:var(--r-sm);border:2px solid var(--c-bad);color:var(--c-bad);background:var(--c-bad-tint);font:700 .875rem var(--f-body);white-space:nowrap}
+.hs .i{width:14px;height:14px}
+.i{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+/* phone frame */
+.phone{width:min(100%,260px);border:4px solid #14120F;border-radius:40px;background:var(--c-surface);color:var(--c-ink);padding:16px 16px 16px;display:flex;flex-direction:column;gap:12px;position:relative}
+.phone::before{content:"";width:72px;height:8px;border-radius:4px;background:#14120F;margin:0 auto 2px}
+.phone.big{width:min(100%,300px);min-height:500px}
+.ph-t{font-weight:700;font-size:.9375rem}.ph-p{font-size:.875rem;color:var(--c-ink-2);margin-top:-8px}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.tile{aspect-ratio:1;border-radius:4px;display:grid;place-items:center;font-size:14px}
+.tile.ok{background:var(--c-ok-tint);color:var(--c-ok)}.tile.warn{background:var(--c-yellow-tint);color:var(--c-warn-text)}.tile.unk{background:var(--c-unk-tint);color:var(--c-unk)}
+.range{height:10px;border-radius:5px;background:var(--c-sunken);border:1px solid var(--c-border);position:relative}
+.range i{position:absolute;top:-1px;bottom:-1px;border:2px solid var(--c-ok);background:var(--c-ok-tint);border-radius:4px}
+.range b{position:absolute;top:-5px;width:3px;height:18px;background:var(--c-ink);border-radius:2px}
+.ph-w{font-size:.875rem;line-height:1.4}
+.steps{display:flex;gap:4px}.steps i{flex:1;height:6px;border-radius:3px;background:var(--c-border)}.steps i.on{background:var(--c-ink)}
+.seg{display:flex;border:2px solid var(--c-ink);border-radius:var(--r-md);overflow:hidden}
+.seg span{flex:1;min-height:40px;display:grid;place-items:center;font:700 .875rem var(--f-body)}.seg .a{background:var(--c-ink);color:var(--c-surface)}
+.res{display:flex;gap:8px}.res span{flex:1;min-height:48px;border-radius:var(--r-md);border:2px solid currentColor;display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 .8125rem/1.1 var(--f-body);text-align:center;gap:2px;padding:0 2px}
+.obj{position:absolute}
+/* theme toggle, language button, popover, sheet */
+.ibtn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:44px;min-height:44px;padding:0 12px;border-radius:var(--r-md);border:1.5px solid var(--c-border-strong);background:transparent;color:var(--c-ink);font:700 .9375rem var(--f-body);cursor:pointer}
+.ibtn .i{width:20px;height:20px;stroke-width:2}.ibtn:hover{background:var(--c-sunken)}
+.pop{position:absolute;right:0;top:calc(100% + 8px);width:min(300px,calc(100vw - 40px));background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r-lg);box-shadow:var(--shadow-float);padding:8px;z-index:20;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity var(--d-base),transform var(--d-base) var(--ease),visibility 0s var(--d-base)}
+.pop.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.pop h3{font:700 .875rem var(--f-body);color:var(--c-ink-3);padding:8px 12px 4px}
+.pop button{display:flex;justify-content:space-between;width:100%;min-height:44px;align-items:center;padding:0 12px;border:0;background:none;color:var(--c-ink);font:600 1rem var(--f-body);border-radius:var(--r-md);cursor:pointer;text-align:left}
+.pop button:hover{background:var(--c-sunken)}.pop small{font-size:.875rem;color:var(--c-ink-3);font-weight:400}
+.scrim{position:fixed;inset:0;background:var(--c-scrim);opacity:0;visibility:hidden;transition:opacity var(--d-base);z-index:30}.scrim.open{opacity:1;visibility:visible}
+@media(max-width:699px){.pop{position:fixed;left:0;right:0;top:auto;bottom:0;width:auto;border-radius:var(--r-lg) var(--r-lg) 0 0;transform:translateY(105%);padding-bottom:24px;z-index:31;transition:transform var(--d-slow) var(--ease),visibility 0s var(--d-slow)}.pop.open{transform:none}}

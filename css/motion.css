@@ -1,0 +1,171 @@
+/* Interaction and motion. Default state is the final state; .js gates entrances so a failed script never hides content. */
+
+/* hero entrance */
+.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
+.js .hero h1 .w>span{display:inline-block;transform:translateY(105%);animation:up 700ms var(--ease) forwards;animation-delay:calc(var(--i)*90ms)}
+.slot{perspective:300px}
+.js .slot svg{transform:rotateY(90deg);animation:stamp 420ms 450ms var(--ease) forwards}
+.js .panel .phone{transform:translateY(110%);animation:rise 800ms 200ms var(--ease) forwards}
+.js .panel .o{opacity:0;animation:pop 520ms var(--ease) forwards;animation-delay:calc(650ms + var(--i)*80ms)}
+@keyframes up{to{transform:none}}@keyframes stamp{to{transform:none}}@keyframes rise{to{transform:none}}
+@keyframes pop{from{opacity:0;scale:.6}to{opacity:1;scale:1}}
+
+/* hero live phone */
+.panel{perspective:900px}
+.tilt{width:min(100%,260px);height:100%;transform-style:preserve-3d}
+.tilt .phone{width:100%}
+.panel .o{will-change:transform}
+.scan{position:absolute;left:10px;right:10px;top:84px;height:3px;background:var(--c-ink);border-radius:2px;opacity:0;pointer-events:none}
+.scan.go{animation:scan 700ms linear}
+@keyframes scan{0%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(260px)}}
+.tile{transition:background var(--d-press),color var(--d-press),transform 160ms var(--ease)}
+.tile.on{transform:scale(1.15)}
+.tile.bad{background:var(--c-bad-tint);color:var(--c-bad)}.tile.off{background:var(--c-sunken);color:transparent}
+.vwrap{perspective:600px}
+.plate{transform-origin:50% 100%;backface-visibility:hidden}
+.plate.flip{animation:flip 420ms var(--ease)}
+@keyframes flip{from{transform:rotateX(-90deg);opacity:0}to{transform:none;opacity:1}}
+.plate{white-space:nowrap}.panel .plate{padding-inline:24px}
+.panel .range{transition:opacity var(--d-base)}.panel.stop .range{opacity:.3}
+.plate.stop{background:var(--c-hazard)}.plate.stop span{background:var(--c-yellow);padding:2px 12px;border-radius:4px}
+.plate.unk{background-color:var(--c-unk-tint);color:var(--c-unk);letter-spacing:.02em}.plate.unk::before{border-color:var(--c-unk)}
+.range i,.range b{transition:left var(--d-slow) var(--ease),width var(--d-slow) var(--ease)}
+.panel .haz{position:absolute;left:0;right:0;top:0;height:20px;background:var(--c-hazard);transform:translateY(-100%);transition:transform var(--d-slow) var(--ease);z-index:2}
+.panel.stop .haz{transform:none}
+
+/* check 2 slider */
+.track .rng{position:absolute;inset:0;width:100%;height:44px;margin:0;opacity:0;cursor:grab;z-index:2}
+.track .rng:active{cursor:grabbing}
+.track .knob,.track .fill{transition:left var(--d-base) var(--ease),width var(--d-base) var(--ease),scale var(--d-fast) var(--ease)}
+.track:hover .knob{scale:1.08}.track:active .knob{scale:.96}
+.track:has(.rng:focus-visible) .knob{outline:3px solid var(--c-focus);outline-offset:3px}
+.track .tk{transition:opacity var(--d-base)}
+.lbls span{transition:color var(--d-base)}.lbls span.cur{color:var(--c-ink)}
+.swap{animation:swap 220ms var(--ease)}
+@keyframes swap{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+.steps i{transition:background var(--d-base)}
+.seg button{flex:1;min-height:40px;border:0;background:none;color:var(--c-ink);font:700 .875rem var(--f-body);cursor:pointer;transition:background var(--d-fast)}
+.seg button:hover{background:var(--c-sunken)}.seg button[aria-checked=true]{background:var(--c-ink);color:var(--c-surface)}
+.res button{flex:1;min-height:48px;border-radius:var(--r-md);border:2px solid currentColor;background:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 .8125rem/1.1 var(--f-body);text-align:center;gap:2px;padding:0 2px;cursor:pointer;transition:transform var(--d-fast) var(--ease),background var(--d-fast)}
+.res button:hover{transform:translateY(-2px)}.res button:active{transform:scale(.96)}
+.res .k{color:var(--c-ok)}.res .p{color:var(--c-bad)}.res .u{color:var(--c-unk)}
+.res .k[aria-checked=true]{background:var(--c-ok-tint)}.res .p[aria-checked=true]{background:var(--c-bad-tint)}.res .u[aria-checked=true]{background:var(--c-unk-tint)}
+.res button[aria-checked=true]{box-shadow:inset 0 0 0 1px currentColor}
+
+/* phone and price */
+.typed{width:100%;background:none;border:0;border-bottom:3px solid rgba(248,246,241,.45);color:var(--c-chapter-ink);caret-color:var(--c-yellow);padding:0 0 12px;outline:none;transition:border-color var(--d-base)}
+.typed:focus{border-bottom-color:var(--c-yellow)}
+.ask{position:relative;height:44px;margin-top:12px}
+.ask .range{position:absolute;left:0;right:0;top:17px}
+.askk{position:absolute;top:8px;width:28px;height:28px;margin-left:-16px;border-radius:50%;background:var(--c-yellow);border:3px solid var(--c-chapter-ink);pointer-events:none;transition:left var(--d-fast) var(--ease),scale var(--d-fast) var(--ease)}
+.ask:hover .askk{scale:1.12}.ask:active .askk{scale:.95}
+.ask:has(.rng:focus-visible) .askk{outline:3px solid var(--c-yellow);outline-offset:3px}
+.ask .rng{position:absolute;inset:0;width:100%;height:44px;margin:0;opacity:0;cursor:grab;z-index:2}
+.ty .range s{position:absolute;top:-1px;bottom:-1px;right:0;background:#FF8A80;border-radius:0 5px 5px 0;transition:left var(--d-slow) var(--ease)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.875rem;margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:8px}.legend i{width:14px;height:10px;border-radius:3px}
+.legend .k{background:rgba(128,128,128,.4)}.legend .n{background:var(--c-yellow)}.legend .w{background:#FF8A80}
+.plate.bad{background-color:#FBE6E3;color:#B3261E}.plate.bad::before{border-color:#B3261E}
+.ask-l{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.ask-l b{font:800 1.375rem var(--f-display);font-stretch:112%;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.msg{margin-top:20px;background:rgba(248,246,241,.1);border-radius:var(--r-lg) var(--r-lg) var(--r-lg) 4px;padding:16px;display:flex;flex-direction:column;gap:12px;max-width:52ch}
+.msg[hidden]{display:none}
+.msg-h{font-size:.875rem;font-weight:700;opacity:.85}
+.msg #msgT{font-size:1rem;line-height:1.5}
+.msg .btn{align-self:flex-start;min-height:44px;background:var(--c-yellow);color:var(--c-on-yellow)}
+.fb{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:1rem;flex-wrap:wrap}
+.fb .ibtn{color:var(--c-chapter-ink);border-color:rgba(248,246,241,.5)}.fb .ibtn:hover{background:rgba(248,246,241,.12)}
+.fb .ibtn:active{transform:scale(.94)}
+.fb-t{animation:swap 220ms var(--ease)}
+
+/* hard stop: stripe slides in, lock rattles once */
+.hard.sec{padding-top:0}.hard .hazard{margin-bottom:40px}
+@media(min-width:1100px){.hard .hazard{margin-bottom:64px}}
+.hard .hazard{transform-origin:left;transition:transform 700ms var(--ease)}
+.js .hard:not(.seen) .hazard{transform:scaleX(0)}
+.hard.seen .art svg{animation:rattle 420ms 300ms var(--ease)}
+@keyframes rattle{20%{rotate:-7deg}40%{rotate:6deg}60%{rotate:-4deg}80%{rotate:2deg}}
+.hrow .i{transition:transform var(--d-fast) var(--ease)}.hrow:hover .i{transform:scale(1.15)}
+
+/* scam quiz */
+.qb{transition:transform var(--d-fast) var(--ease),background var(--d-fast),color var(--d-fast)}
+.qb:hover{transform:translateY(-2px)}.qb:active{transform:scale(.96)}
+.qb[aria-checked=true]{background:var(--c-ink);color:var(--c-ground)}
+.ans-t[hidden]{display:none}.ans-t:not([hidden]){animation:slide 420ms var(--ease)}
+.ans-t.no .i{color:var(--c-bad)}
+@keyframes slide{from{opacity:0;clip-path:inset(0 100% 0 0)}to{opacity:1;clip-path:inset(0)}}
+.score{margin-top:20px;font-weight:700;font-size:1.125rem}
+
+/* closing sentence */
+input.blank{font:inherit;color:inherit;border:0;border-bottom:3px solid var(--c-ink);background:var(--c-sunken);padding:0 .2em;width:calc(var(--n,9) * .62em + .5em);min-width:3em;max-width:100%;letter-spacing:inherit;caret-color:var(--c-ink);transition:background var(--d-base)}
+input.blank:focus{outline:none;background:var(--c-yellow-tint)}
+
+/* objects on first view */
+.js .ani:not(.seen){opacity:0}
+.ani.seen[data-k=battery]{animation:fillx 700ms var(--ease)}
+.ani.seen[data-k=sim]{animation:simin 520ms var(--ease)}
+.ani.seen[data-k=bill]{animation:print 700ms steps(6,end)}
+.ani.seen[data-k=chat]{animation:pop 420ms var(--ease)}
+.ani.seen[data-k=back]{animation:swap 520ms var(--ease)}
+@keyframes fillx{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0)}}
+@keyframes simin{from{opacity:0;translate:40px 0}to{opacity:1;translate:0}}
+@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
+
+/* links and nav */
+.hdr .lnk,.ftr a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;text-decoration-color:transparent;transition:text-decoration-color var(--d-fast),text-decoration-thickness var(--d-fast)}
+.hdr .lnk:hover{text-decoration-color:currentColor}
+.ftr a{text-decoration-color:currentColor}.ftr a:hover{text-decoration-thickness:3px}
+.ibtn{transition:background var(--d-fast),transform var(--d-fast) var(--ease)}.ibtn:active{transform:scale(.94)}
+::selection{background:var(--c-yellow);color:#14120F}
+
+/* language popover / sheet */
+.pop-h{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 4px 12px}
+.pop-h b{font-size:1.125rem}
+.pop .x{width:44px;justify-content:center;padding:0}
+.pop [aria-checked=true]{background:var(--c-sunken)}.pop button small{margin-left:auto}
+.pop [aria-checked=true]::after{content:"";width:18px;height:10px;border:solid var(--c-ink);border-width:0 0 3px 3px;rotate:-45deg;translate:0 -3px;margin-left:8px}
+.pop .note{font-size:.875rem;color:var(--c-ink-2);padding:8px 12px}
+@media(max-width:699px){.pop{max-height:80vh;overflow:auto}.pop::before{content:"";display:block;width:40px;height:4px;border-radius:2px;background:var(--c-border-strong);margin:4px auto 8px}}
+@media(min-width:700px){.pop .x{display:none}}
+
+/* Check 2 stage: objects cluster around the phone, section centred at 1280 */
+.c2{max-width:1280px;margin-inline:auto}
+.c2-r{padding:40px var(--gutter)}
+.stage{position:relative;width:min(100%,460px);min-height:600px;display:flex;justify-content:center;align-items:center}
+.phone.big{width:min(100%,280px);aspect-ratio:9/18;min-height:0;border-radius:44px}
+.phone.big::after,.panel .phone::after{content:"";width:96px;height:4px;border-radius:2px;background:#14120F;margin:auto auto 0;opacity:.8}
+.stage .obj:nth-of-type(1){left:2%;top:6%}.stage .obj:nth-of-type(2){right:0;top:12%}.stage .obj:nth-of-type(3){left:0;bottom:6%}
+@media(max-width:1099px){.c2-r{background:var(--c-surface)}.stage{min-height:0}}
+
+/* phones: objects would sit behind the phone, so the hero keeps two above it and Check 2 drops them */
+@media(max-width:699px){
+ .panel{padding-top:88px;height:500px}
+ .panel .o{width:56px;height:56px}
+ .panel .o:nth-of-type(1){left:6%!important;top:16px!important}
+ .panel .o:nth-of-type(2){right:6%!important;top:14px!important}
+ .panel .o:nth-of-type(3),.panel .o:nth-of-type(4){display:none}
+ .stage{flex-wrap:wrap;gap:16px 20px;align-content:flex-start;padding-top:0}
+ .stage .obj{position:static!important;rotate:none!important;width:56px;height:56px}
+ .stage .phone.big{flex-basis:100%;width:min(100%,280px);flex:0 0 auto;margin-top:8px}
+ .stage{justify-content:center}
+}
+.hs[hidden]{display:none}
+
+/* ticker: the ten checks, full bleed; tap one to open it in the slider */
+.ticker{background:var(--c-chapter);color:var(--c-chapter-ink);overflow:hidden;border-block:1px solid rgba(248,246,241,.12)}
+.tk-track{display:flex;width:max-content;animation:tick 48s linear infinite}
+.ticker:hover .tk-track,.ticker:focus-within .tk-track,.ticker.off .tk-track{animation-play-state:paused}
+.tk-track button{display:inline-flex;align-items:center;gap:12px;min-height:56px;padding:0 24px;border:0;background:none;color:inherit;font:700 1.125rem var(--f-display);font-stretch:112%;white-space:nowrap;cursor:pointer;transition:color var(--d-fast)}
+.tk-track button b{display:inline-grid;place-items:center;min-width:28px;height:28px;border-radius:4px;background:var(--c-yellow);color:#14120F;font-size:.875rem;transition:transform var(--d-fast) var(--ease)}
+.tk-track button:hover{color:var(--c-yellow)}.tk-track button:hover b{transform:rotate(-6deg) scale(1.1)}
+.tk-track button.hs-t::after{content:"Hard stop";font:700 .75rem var(--f-body);color:#FF8A80;border:1.5px solid #FF8A80;border-radius:4px;padding:1px 8px}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media(min-width:1440px){:root{--max:1280px}}
+
+@media(prefers-reduced-motion:reduce){
+ .tk-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}.tk-track [aria-hidden]{display:none}
+ .js .hero h1 .w>span,.js .slot svg,.js .panel .phone{transform:none;animation:none}
+ .js .panel .o,.js .ani:not(.seen){opacity:1;animation:none}
+ .ani.seen,.hard.seen .art svg{animation:none}
+ .js .hard:not(.seen) .hazard{transform:none}
+}

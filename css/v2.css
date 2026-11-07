@@ -1,0 +1,106 @@
+/* v2: eye-catching hero (yellow block, black stage, stamps), calmer middle, sticky verdict bar, size fixes. Loaded last. */
+
+/* ---- hero: yellow block, black stage, cream phone ---- */
+.hero{background:var(--c-yellow);color:var(--fx-ink);border-bottom:4px solid var(--fx-ink);--c-ink:var(--fx-ink);--c-ground:var(--fx-cream);--c-surface:var(--fx-white);--c-ink-2:var(--c-ink-2);--c-border-strong:var(--fx-ink);--c-sunken:var(--fx-sunken)}
+.hero .chip{background:var(--fx-white);border-color:var(--fx-ink);box-shadow:3px 3px 0 var(--fx-ink);color:var(--fx-ink)}
+.hero .chip[aria-checked=true]{background:var(--fx-ink);color:var(--fx-yellow);box-shadow:none}
+.hero .btn{background:var(--fx-ink);color:var(--fx-yellow);border-color:var(--fx-ink);box-shadow:5px 5px 0 var(--fx-white)}
+.hero .btn:hover{box-shadow:7px 7px 0 var(--fx-white)}.hero .btn:active{box-shadow:1px 1px 0 var(--fx-white)}
+.hero h1{font-size:clamp(3rem,1rem + 9vw,7rem)}
+.hero .panel{background:var(--fx-ink);border-color:var(--fx-ink);box-shadow:8px 8px 0 var(--fx-cream);color:var(--fx-cream);overflow:visible}
+.hero .panel .phone{border-color:var(--fx-cream);background:var(--fx-white);color:var(--fx-ink)}
+.hero .panel .phone::before,.hero .panel .phone::after{background:var(--fx-ink)}
+.hero .panel .o{color:var(--fx-cream)}
+@media(min-width:700px){.hero .panel .o{width:104px;height:104px}.hero .panel{margin-top:-8px}}
+.hero .panel .haz{border-radius:0}
+.hero .panel{overflow:hidden}
+.hero .panel .phone{box-shadow:0 0 0 3px var(--fx-yellow)}
+.stamp{position:absolute;left:50%;bottom:20%;translate:-50% 0;z-index:5;pointer-events:none;font:900 clamp(1.75rem,5vw,2.75rem)/1 var(--f-display);font-stretch:112%;text-transform:uppercase;letter-spacing:.02em;padding:8px 16px;border:5px solid currentColor;background:rgba(255,255,255,.92);white-space:nowrap;opacity:0;rotate:-12deg}
+.stamp.r{color:#B3261E}.stamp.g{color:#1B6F3C}.stamp.k{color:var(--fx-ink)}
+.stamp.on{animation:slam 320ms var(--ease) forwards}
+@keyframes slam{from{opacity:0;scale:2.4;rotate:-26deg}55%{opacity:1}to{opacity:1;scale:1;rotate:-12deg}}
+
+/* ---- calm middle: sentence case, flat controls ---- */
+.c2 h2,.scam h2,.ty-h{text-transform:none;letter-spacing:-.03em;line-height:1}
+.c2 h2{font-size:clamp(2.25rem,1rem + 3.6vw,4.25rem)}
+.scam h2,.ty-h{font-size:clamp(2.25rem,1rem + 3.4vw,4rem)}
+.qrow .d{text-transform:none;letter-spacing:-.02em}
+.scam .qb,.seg,.res button,.c2 .seg button{box-shadow:none;border-width:2px}
+.scam .qb:hover{transform:none;background:var(--c-sunken)}
+.scam .qb[aria-checked=true]{transform:none}
+.opts span{box-shadow:none;border-width:2px}
+.opts label:hover span{transform:none;box-shadow:none;background:rgba(248,246,241,.12)}
+.opts input:checked+span{transform:none}
+
+/* ---- form: essentials first, optional details folded ---- */
+.more{border:3px solid var(--c-chapter-ink);border-radius:4px;padding:4px 16px 8px;margin-top:8px}
+.more>summary{font:800 1.125rem var(--f-display);font-stretch:112%;cursor:pointer;min-height:48px;display:flex;align-items:center}
+.more[open]>summary{margin-bottom:12px}
+.demo{border:0;padding:0;font-size:.9375rem;opacity:.95}
+.demo .tg{margin-right:8px}
+.tg.a{color:#C9C3B3}
+
+/* ---- sticky verdict bar (phones and narrow screens) ---- */
+.vbar{position:fixed;left:0;right:0;bottom:0;z-index:55;display:flex;align-items:center;gap:12px;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:var(--fx-ink);color:var(--fx-cream);border-top:4px solid var(--fx-yellow)}
+.vbar[hidden]{display:none}
+.vbar.stop{border-image:var(--c-hazard) 1;border-top-width:8px}
+.vbar .vw{font:900 1.125rem var(--f-display);font-stretch:112%;text-transform:uppercase;background:var(--fx-yellow);color:var(--fx-ink);padding:4px 12px;border-radius:4px;white-space:nowrap}
+.vbar .vt{flex:1;font-size:.875rem;line-height:1.3;min-width:0}
+.vbar a{color:var(--fx-yellow);font-weight:700;min-height:44px;display:inline-flex;align-items:center;padding:0 4px}
+
+/* ---- size fixes: 14px text, 44px targets ---- */
+.res button,.tg,.legend,.hs,.tk-track button.hs-t::after{font-size:.875rem}
+.res button{min-height:48px}
+.hdr>a:first-child{display:inline-flex;align-items:center;min-height:44px}
+.seg button{min-height:44px}
+summary{min-height:44px;display:flex;align-items:center}
+input.blank{min-height:44px}
+.hs-t::after{font-size:.875rem}
+
+@media(prefers-reduced-motion:reduce){.stamp.on{animation:none;opacity:1;scale:1}}
+.card details summary,.paste summary{min-height:44px}
+
+.lnk2{display:inline-flex;align-items:center;min-height:44px;color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.lnk2:hover{text-decoration-thickness:4px}
+.hero .lnk2{align-self:center}
+/* sticky bar: word and link on one row, reason below, never taller than two lines */
+.vbar{flex-wrap:wrap;row-gap:4px}
+.vbar .vt{order:3;flex-basis:100%;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.vbar a{margin-left:auto}
+.vbar .vw{white-space:normal;max-width:calc(100% - 100px);font-size:1rem;line-height:1.15}
+
+.pop .pop-g{font:700 .875rem var(--f-body);color:var(--c-ink-3);padding:8px 12px 4px;margin:0}
+button.lnk2{background:none;border:0;padding:0 4px;font:inherit;font-weight:700;color:inherit;cursor:pointer}
+
+/* Phase D tokens: one radius for controls and cards; the plate ring and the phone body are the only exceptions */
+:root{--r-sm:4px;--r-md:4px;--r-lg:4px;
+ /* fixed colours: the hero and its phone stay light in both themes, so they use these instead of theme tokens */
+ --fx-ink:#14120F;--fx-yellow:#FFC20A;--fx-cream:#F8F6F1;--fx-white:#FFFFFF;--fx-ok:#1B6F3C;--fx-ok-tint:#E3F2E8;--fx-bad:#B3261E;--fx-bad-tint:#FBE6E3;--fx-unk:#3A4878;--fx-unk-tint:#E8ECF6;--fx-warn:#6B4A00;--fx-warn-tint:#FFF3C4;--fx-sunken:#EFECE4;--fx-ink-3:#6A6456}
+input,select,textarea,button{font-family:inherit}
+.hero :focus-visible,.yellow-bg :focus-visible,.band :focus-visible{outline-color:var(--fx-ink)}
+.hdr.pop-open{z-index:40}
+
+/* footer: 1930 on a black plate (yellow numerals), with the brand drawings */
+.ftr-mid{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:24px}
+.ftr-mid h2{margin-top:0}
+.ftr-plate{display:inline-block;position:relative;background-color:var(--fx-ink);color:var(--fx-yellow);padding:.04em .32em .02em;border-radius:12px;font-variant-numeric:tabular-nums;letter-spacing:.02em;
+ background-image:radial-gradient(circle at .16em 50%,var(--fx-yellow) .045em,transparent .055em),radial-gradient(circle at calc(100% - .16em) 50%,var(--fx-yellow) .045em,transparent .055em)}
+.ftr-plate::before{content:"";position:absolute;inset:5px;border:3px solid var(--fx-yellow);border-radius:8px;pointer-events:none}
+.ftr-objs{display:flex;gap:16px;color:var(--fx-ink)}
+.ftr-objs svg{width:clamp(48px,8vw,88px);height:clamp(48px,8vw,88px)}
+.ftr-objs svg:nth-child(odd){rotate:-6deg}.ftr-objs svg:nth-child(even){rotate:5deg}
+
+/* touch screens: a tap must not leave a control stuck in its hover pose */
+@media (hover:none){
+ .btn:hover{transform:none;box-shadow:var(--hard)}
+ .hero .btn:hover{box-shadow:5px 5px 0 var(--fx-white)}
+ .ty .btn:hover,.msg .btn:hover{box-shadow:5px 5px 0 var(--c-chapter-ink)}
+ .chip:hover,.qb:hover{transform:none;box-shadow:3px 3px 0 var(--c-ink)}
+ .chip.ex:hover{box-shadow:3px 3px 0 var(--c-chapter-ink)}
+ .chip[aria-checked=true]:hover,.qb[aria-checked=true]:hover,.chip.ex[aria-checked=true]:hover{transform:translate(3px,3px);box-shadow:none}
+ .scam .qb:hover{background:var(--c-surface)}.scam .qb[aria-checked=true]:hover{background:var(--c-ink);transform:none}
+ .res button:hover{transform:none}.track:hover .knob{scale:1}.tk-track button:hover b{transform:none}.hrow:hover .i{transform:none}
+ .fb .ibtn:hover{background:transparent;color:var(--c-chapter-ink);border-color:var(--c-chapter-ink)}
+}
+/* language sheet on phones: opens in 300ms, closes faster in 200ms */
+@media(max-width:699px){.pop{transition:transform 200ms cubic-bezier(.23,1,.32,1),visibility 0s 200ms}.pop.open{transition:transform 300ms cubic-bezier(.32,.72,0,1),visibility 0s}}

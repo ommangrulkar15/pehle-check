@@ -1,0 +1,46 @@
+/* Pehle Check design tokens. World: the Kaali-Peeli taxi. Light is the default (used outdoors, in bright light); dark is a full theme. */
+:root {
+  /* colour: light */
+  --c-ground: #F8F6F1;      --c-surface: #FFFFFF;     --c-sunken: #EFECE4;
+  --c-border: #D8D3C5;      --c-border-strong: #8C8574;
+  --c-ink: #14120F;         --c-ink-2: #4A453B;       --c-ink-3: #6A6456;
+  --c-yellow: #FFC20A;      --c-yellow-press: #E6AC00; --c-yellow-tint: #FFF3C4; --c-on-yellow: #14120F; --c-warn-text: #6B4A00;
+  --c-ok: #1B6F3C;          --c-ok-tint: #E3F2E8;
+  --c-bad: #B3261E;         --c-bad-tint: #FBE6E3;
+  --c-unk: #3A4878;         --c-unk-tint: #E8ECF6;
+  --c-focus: #14120F;       --c-scrim: rgba(20, 18, 15, 0.55);
+  --c-action: #14120F;      --c-on-action: #FFFFFF;   /* primary button on light surfaces */
+
+  /* type */
+  --f-display: "Archivo", "Hind", system-ui, sans-serif;   /* wght 800, wdth 112 */
+  --f-body: "Atkinson Hyperlegible Next", "Hind", system-ui, sans-serif;
+  --t-caption: 0.8125rem;  --t-small: 0.875rem;  --t-body: 1rem;  --t-lead: 1.125rem;
+  --t-title: 1.375rem;     --t-h2: 1.75rem;      --t-h1: 2.25rem; --t-display: clamp(2.75rem, 1.2rem + 6vw, 6rem);
+  --lh-body: 1.5; --lh-head: 1.1; --lh-display: 1.0;
+  --tr-display: -0.02em; --tr-head: -0.01em;
+
+  /* space (4 px base) */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px; --s-14: 56px; --s-20: 80px;
+  /* shape */
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-plate: 12px;
+  --tap: 44px;
+  --shadow-float: 0 8px 28px rgba(20, 18, 15, 0.22);   /* only for menus and sheets that truly float */
+  /* motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1); --d-fast: 120ms; --d-base: 220ms; --d-slow: 420ms;
+  /* breakpoints (documented): tablet 600px, desktop 1024px, wide 1280px */
+}
+[data-theme="dark"] {
+  --c-ground: #100F0D; --c-surface: #1B1915; --c-sunken: #0A0908;
+  --c-border: #38342B; --c-border-strong: #8A8472;
+  --c-ink: #F6F3EA; --c-ink-2: #C9C3B3; --c-ink-3: #A29C8B;
+  --c-yellow: #FFC20A; --c-yellow-press: #FFD24D; --c-yellow-tint: #3A2F0A; --c-on-yellow: #14120F; --c-warn-text: #FFD866;
+  --c-ok: #6FD594; --c-ok-tint: #12301F; --c-bad: #FF8A80; --c-bad-tint: #3A1512; --c-unk: #9FB0F0; --c-unk-tint: #1B2342;
+  --c-focus: #FFC20A; --c-scrim: rgba(0, 0, 0, 0.65);
+  --c-action: #FFC20A; --c-on-action: #14120F;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --c-ground: #100F0D; --c-surface: #1B1915; --c-sunken: #0A0908; --c-border: #38342B; --c-border-strong: #8A8472;
+  --c-ink: #F6F3EA; --c-ink-2: #C9C3B3; --c-ink-3: #A29C8B; --c-yellow-press: #FFD24D; --c-yellow-tint: #3A2F0A; --c-warn-text: #FFD866;
+  --c-ok: #6FD594; --c-ok-tint: #12301F; --c-bad: #FF8A80; --c-bad-tint: #3A1512; --c-unk: #9FB0F0; --c-unk-tint: #1B2342;
+  --c-focus: #FFC20A; --c-scrim: rgba(0, 0, 0, 0.65); --c-action: #FFC20A; --c-on-action: #14120F;
+} }
